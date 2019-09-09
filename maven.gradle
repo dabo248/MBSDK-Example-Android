@@ -1,0 +1,4 @@
+ext {
+    jumio_url = 'https://mobile-sdk.jumio.com'
+    mobile_sdk_url = 'https://pkgs.dev.azure.com/daimler-ris/sdk/_packaging/release/maven/v1'
+}

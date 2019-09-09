@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.daimler.reference.home.HomeViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/mb_margin_default" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="view_vehicle_status,tv_no_vehicle_selected" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/mb_margin_default" />
+
+            <com.daimler.reference.vehicledata.vehiclestatus.VehicleStatusView
+                android:id="@+id/view_vehicle_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mb_margin_default"
+                android:visibility="@{safeUnbox(model.vehicleAvailable)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:vehicleStatus="@{model.vehicleStatus}" />
+
+            <com.daimler.mbuikit.widgets.textviews.MBHeadline4SerifTextView
+                android:id="@+id/tv_no_vehicle_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mb_margin_default"
+                android:text="@string/no_vehicle_selected"
+                android:visibility="@{safeUnbox(!model.vehicleAvailable)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.daimler.mbuikit.widgets.textviews.MBHeadline5SerifTextView
+                android:id="@+id/tv_tank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tank"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrier_top" />
+
+            <View
+                android:id="@+id/divider_tank"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/mb_divider_height"
+                android:background="@color/mb_divider_color"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_tank" />
+
+            <com.daimler.reference.vehicledata.attributes.TankInformationView
+                android:id="@+id/view_tank_information"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mb_margin_default"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/divider_tank"
+                app:tank="@{model.tank}" />
+
+            <com.daimler.mbuikit.widgets.textviews.MBHeadline5SerifTextView
+                android:id="@+id/tv_doors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mb_margin_default"
+                android:text="@string/doors"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_tank_information" />
+
+            <View
+                android:id="@+id/divider_doors"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/mb_divider_height"
+                android:background="@color/mb_divider_color"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_doors" />
+
+            <com.daimler.reference.vehicledata.commands.DoorLockCommandView
+                android:id="@+id/view_door_lock"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mb_margin_default"
+                android:enabled="@{safeUnbox(model.commandsEnabled)}"
+                app:commandData="@{model.doorCommandData}"
+                app:doorActionListener="@{() -> model.onLockDoorsClicked()}"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/divider_doors"
+                app:processing="@{safeUnbox(model.doorCommandProcessing)}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

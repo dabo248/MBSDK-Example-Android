@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="com.daimler.reference.vehicledata.attributes.TankInformationView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--  Liquid  -->
+
+    <com.daimler.reference.vehicledata.attributes.VehicleAttributeView
+        android:id="@+id/view_liquid_range"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/mb_margin_small"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_liquid_level"/>
+
+    <com.daimler.reference.vehicledata.attributes.VehicleAttributeView
+        android:id="@+id/view_liquid_level"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mb_margin_small"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/view_liquid_range"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!--  Gas  -->
+
+    <com.daimler.reference.vehicledata.attributes.VehicleAttributeView
+        android:id="@+id/view_gas_range"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mb_margin_small"
+        android:layout_marginEnd="@dimen/mb_margin_small"
+        app:layout_constraintTop_toBottomOf="@id/view_liquid_range"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_gas_level"/>
+
+    <com.daimler.reference.vehicledata.attributes.VehicleAttributeView
+        android:id="@+id/view_gas_level"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mb_margin_small"
+        app:layout_constraintTop_toTopOf="@id/view_gas_range"
+        app:layout_constraintStart_toEndOf="@id/view_gas_range"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!--  Electric  -->
+
+    <com.daimler.reference.vehicledata.attributes.VehicleAttributeView
+        android:id="@+id/view_electric_range"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mb_margin_small"
+        android:layout_marginEnd="@dimen/mb_margin_small"
+        app:layout_constraintTop_toBottomOf="@id/view_gas_range"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_electric_level"/>
+
+    <com.daimler.reference.vehicledata.attributes.VehicleAttributeView
+        android:id="@+id/view_electric_level"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mb_margin_small"
+        app:layout_constraintTop_toTopOf="@id/view_electric_range"
+        app:layout_constraintStart_toEndOf="@id/view_electric_range"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!--  AdBlue  -->
+
+    <com.daimler.reference.vehicledata.attributes.VehicleAttributeView
+        android:id="@+id/view_adblue_level"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mb_margin_small"
+        android:layout_marginEnd="@dimen/mb_margin_small"
+        app:layout_constraintTop_toBottomOf="@id/view_electric_range"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_electric_level"/>
+
+</merge>

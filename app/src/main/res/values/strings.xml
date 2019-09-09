@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name" translatable="false">SDK Reference</string>
+
+    <string name="home_title" translatable="false">Home</string>
+
+    <string name="tank" translatable="false">Tank</string>
+    <string name="doors" translatable="false">Doors</string>
+
+    <string name="no_vehicle_selected" translatable="false">No vehicle selected!</string>
+
+    <string name="liquid_range" translatable="false">Liquid Range</string>
+    <string name="liquid_level" translatable="false">Liquid Level</string>
+    <string name="gas_range" translatable="false">Gas Range</string>
+    <string name="gas_level" translatable="false">Gas Level</string>
+    <string name="electric_range" translatable="false">Electric Range</string>
+    <string name="electric_level" translatable="false">Electric Level</string>
+    <string name="adblue_level" translatable="false">AdBlue Level</string>
+
+    <string name="unit_km" translatable="false">km</string>
+    <string name="unit_miles" translatable="false">mi</string>
+
+    <string name="command_error" translatable="false">Error:</string>
+    <string name="command_state" translatable="false">State:</string>
+    <string name="command_process_id" translatable="false">Process ID:</string>
+    <string name="command_timestamp" translatable="false">Timestamp:</string>
+    <string name="command_doors_close" translatable="false">Close</string>
+    <string name="command_error_unknown" translatable="false">Something went wrong when trying to send the command.</string>
+</resources>

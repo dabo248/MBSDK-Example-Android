@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="com.daimler.reference.vehicledata.commands.DoorLockCommandView">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <com.daimler.mbuikit.widgets.buttons.MBPrimaryButton
+        android:id="@+id/btn_lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/command_doors_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.daimler.mbuikit.widgets.loadingindicators.MBLoadingSpinner
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_lock" />
+
+    <!-- Condition -->
+
+    <com.daimler.mbuikit.widgets.textviews.MBCaptionTextView
+        android:id="@+id/tv_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mb_margin_default"
+        android:text="@string/command_error"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress" />
+
+    <com.daimler.mbuikit.widgets.textviews.MBCaptionTextView
+        android:id="@+id/tv_error_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mb_margin_small"
+        android:layout_marginEnd="@dimen/mb_margin_default"
+        app:layout_constraintEnd_toStartOf="@id/tv_state"
+        app:layout_constraintStart_toEndOf="@id/tv_error"
+        app:layout_constraintTop_toTopOf="@id/tv_error"
+        tools:text="-" />
+
+    <View
+        android:id="@+id/divider_condition"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mb_divider_height"
+        android:background="@color/mb_divider_color"
+        app:layout_constraintEnd_toEndOf="@id/tv_error_content"
+        app:layout_constraintStart_toStartOf="@id/tv_error"
+        app:layout_constraintTop_toBottomOf="@id/tv_error_content" />
+
+    <!-- State -->
+
+    <com.daimler.mbuikit.widgets.textviews.MBCaptionTextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/command_state"
+        app:layout_constraintStart_toStartOf="@id/guideline_middle"
+        app:layout_constraintTop_toTopOf="@id/tv_error" />
+
+    <com.daimler.mbuikit.widgets.textviews.MBCaptionTextView
+        android:id="@+id/tv_state_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mb_margin_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_state"
+        app:layout_constraintTop_toTopOf="@id/tv_state"
+        tools:text="-" />
+
+    <View
+        android:id="@+id/divider_state"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mb_divider_height"
+        android:background="@color/mb_divider_color"
+        app:layout_constraintEnd_toEndOf="@id/tv_state_content"
+        app:layout_constraintStart_toStartOf="@id/tv_state"
+        app:layout_constraintTop_toBottomOf="@id/tv_state_content" />
+
+    <!-- Process ID -->
+
+    <com.daimler.mbuikit.widgets.textviews.MBCaptionTextView
+        android:id="@+id/tv_process_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mb_margin_default"
+        android:text="@string/command_process_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider_condition" />
+
+    <com.daimler.mbuikit.widgets.textviews.MBCaptionTextView
+        android:id="@+id/tv_process_id_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mb_margin_small"
+        android:layout_marginEnd="@dimen/mb_margin_default"
+        app:layout_constraintEnd_toStartOf="@id/tv_timestamp"
+        app:layout_constraintStart_toEndOf="@id/tv_process_id"
+        app:layout_constraintTop_toTopOf="@id/tv_process_id"
+        tools:text="-" />
+
+    <View
+        android:id="@+id/divider_process_id"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mb_divider_height"
+        android:background="@color/mb_divider_color"
+        app:layout_constraintEnd_toEndOf="@id/tv_process_id_content"
+        app:layout_constraintStart_toStartOf="@id/tv_process_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_process_id_content" />
+
+    <!-- Timestamp -->
+
+    <com.daimler.mbuikit.widgets.textviews.MBCaptionTextView
+        android:id="@+id/tv_timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mb_margin_default"
+        android:text="@string/command_timestamp"
+        app:layout_constraintStart_toStartOf="@id/guideline_middle"
+        app:layout_constraintTop_toBottomOf="@id/divider_state" />
+
+    <com.daimler.mbuikit.widgets.textviews.MBCaptionTextView
+        android:id="@+id/tv_timestamp_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mb_margin_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_timestamp"
+        app:layout_constraintTop_toTopOf="@id/tv_timestamp"
+        tools:text="-" />
+
+    <View
+        android:id="@+id/divider_timestamp"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/mb_divider_height"
+        android:background="@color/mb_divider_color"
+        app:layout_constraintEnd_toEndOf="@id/tv_timestamp_content"
+        app:layout_constraintStart_toStartOf="@id/tv_timestamp"
+        app:layout_constraintTop_toBottomOf="@id/tv_timestamp_content" />
+
+</merge>
