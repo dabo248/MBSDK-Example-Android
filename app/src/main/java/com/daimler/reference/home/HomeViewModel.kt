@@ -61,7 +61,7 @@ class HomeViewModel(app: Application) : AndroidViewModel(app), SocketConnectionL
                 }
 
                 override fun onUpdate(status: VehicleCommandStatusUpdate) {
-                    onCommandUdate(status)
+                    onCommandUpdate(status)
                 }
             } )
         } ?: MBLoggerKit.e("No vehicle selected.")
@@ -112,7 +112,7 @@ class HomeViewModel(app: Application) : AndroidViewModel(app), SocketConnectionL
         }
     }
 
-    private fun onCommandUdate(status: VehicleCommandStatusUpdate) {
+    private fun onCommandUpdate(status: VehicleCommandStatusUpdate) {
         doorCommandData.postValue(
             CommandStatusData(
                 null,
